@@ -24,4 +24,7 @@ export const USERMESSAGE = {
     "Confrim password length must be from 5 to 50",
   CONFIRM_PASSWORD_DOES_NOT_MATCH_PASSWORD:
     "Confirm password does not match password",
+
+  EMAIL_OR_PASSWORD_IS_INCORRECT: "Email or password is incorrect",
+  VALIDATION_ERROR: "Validation error",
 } as const;

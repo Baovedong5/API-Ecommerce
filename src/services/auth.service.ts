@@ -3,6 +3,7 @@ import ms from "ms";
 
 import { RegisterReqBody } from "~/models/requests/auth.request";
 import User from "~/models/schemas/user.schema";
+import { hash } from "~/utils/bcrypt";
 import { signToken } from "~/utils/jwt";
 
 class AuthService {
@@ -59,6 +60,7 @@ class AuthService {
   async register(payload: RegisterReqBody) {
     const newUser = await User.create({
       ...payload,
+      password: hash(payload.password),
       role: "USER",
     });
     return {

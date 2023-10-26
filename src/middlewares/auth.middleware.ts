@@ -1,8 +1,9 @@
 import { checkSchema } from "express-validator";
+import { HTTPSTATUS } from "~/constants/httpStatus";
 
 import { USERMESSAGE } from "~/constants/message";
-import User from "~/models/schemas/user.schema";
 import authService from "~/services/auth.service";
+import { ErrorWithStatus } from "~/utils/error";
 import { validate } from "~/utils/validation";
 
 export const registerValidator = validate(

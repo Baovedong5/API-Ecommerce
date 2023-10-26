@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 
 import routes from "./routes/index.routes";
 import connection from "./database/database";
+import defaultErrorHandler from "./middlewares/error.middleware";
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -18,6 +19,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //route
 app.use("/api/v1", routes);
+
+//error handler
+app.use(defaultErrorHandler);
 
 // connect database
 (async () => {
